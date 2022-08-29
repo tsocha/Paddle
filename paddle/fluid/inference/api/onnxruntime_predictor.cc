@@ -67,13 +67,13 @@ bool CheckConvertToONNX(const AnalysisConfig &config) {
     // config.model_dir() + "/__model__"
     // config.model_dir() + var_name
     return false;
-  } else if (config.prog_file().empty() || config.params_file().empty()) {
-    LOG(ERROR) << string::Sprintf(
-        "not valid model path '%s' or program path '%s' or params path '%s'.",
-        config.model_dir(),
-        config.prog_file(),
-        config.params_file());
-    return false;
+  // } else if (config.prog_file().empty() || config.params_file().empty()) {
+  //   LOG(ERROR) << string::Sprintf(
+  //       "not valid model path '%s' or program path '%s' or params path '%s'.",
+  //       config.model_dir(),
+  //       config.prog_file(),
+  //       config.params_file());
+  //   return false;
   }
   if (config.model_from_memory()) {
     return paddle2onnx::IsExportable(config.prog_file().data(),
